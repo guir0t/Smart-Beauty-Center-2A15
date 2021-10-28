@@ -24,7 +24,7 @@ void MainWindow::on_pushButton_ajouter_clicked()
     float prix=ui->lineEdit_prix->text().toFloat();
     int quantite=ui->lineEdit_quantite->text().toInt();
     float produit_solde=ui->lineEdit_produit_solde->text().toFloat();
-    produit P(cin,prix,quantite,produit_solde);
+    produit P(cin,prix,produit_solde,quantite);
 
     bool test=P.ajouter();//inserer produit p dans la table
     if (test)
@@ -42,3 +42,22 @@ void MainWindow::on_pushButton_ajouter_clicked()
 
 
 }
+
+/*void MainWindow::on_pushButton_4_clicked()
+{
+    produit pp;
+
+    pp.setCin(ui->lineEdit_cin_supp->text().toInt());
+    bool test=pp.supprimer(pp.getCin());
+        if(test)
+    {
+            ui->tab_2->setModel(pp.afficher());
+            QMessageBox::information(nullptr, QObject::tr("ok"),
+                        QObject::tr("suppresion effectué.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);}
+    else
+    QMessageBox::critical(nullptr, QObject::tr("echec"),
+                QObject::tr("suprresion non effectué.\n"
+                            "Click Cancel to exit."), QMessageBox::Cancel);
+}
+*/

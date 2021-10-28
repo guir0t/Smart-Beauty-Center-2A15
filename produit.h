@@ -13,18 +13,18 @@ class produit
     float produit_solde;
 public:
     //construc
-    produit(){}
-    produit(int,float,int,float);
+    produit();
+    produit(int,float,float,int);
     //getters
-    int getCin(){return cin;}
-    float getPrix(){return prix;}
-    int getQuantite(){return quantite;}
-    float getProduit_Solde(){return produit_solde;}
+    int getCin();
+    float getPrix();
+    int getQuantite();
+    float getProduit_Solde();
     //setters
-    void setCin(int c){this->cin=c;}
-    void setPrix(float p){this->prix=p;}
-    void setQuantite(int q){this->quantite=q;}
-    void setProduit_Solde(float ps){this->produit_solde=ps;}
+    void setCin(int c);
+    void setPrix(float p);
+    void setQuantite(int q);
+    void setProduit_Solde(float ps);
      //ajouter afficher supprimer (methode de base )
     bool ajouter ();
     QSqlQueryModel * afficher();

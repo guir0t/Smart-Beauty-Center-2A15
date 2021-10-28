@@ -27,7 +27,7 @@
      <string notr="true">background-color: rgb(252, 231, 212);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -36,7 +36,7 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>60</x>
         <y>10</y>
         <width>411</width>
         <height>281</height>
@@ -98,8 +98,8 @@ border-color: rgb(117, 76, 36);</string>
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>120</y>
+         <x>30</x>
+         <y>150</y>
          <width>56</width>
          <height>16</height>
         </rect>
@@ -112,7 +112,7 @@ border-color: rgb(117, 76, 36);</string>
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>120</y>
+         <y>150</y>
          <width>113</width>
          <height>22</height>
         </rect>
@@ -122,7 +122,7 @@ border-color: rgb(117, 76, 36);</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>160</y>
+         <y>120</y>
          <width>81</width>
          <height>16</height>
         </rect>
@@ -135,7 +135,7 @@ border-color: rgb(117, 76, 36);</string>
        <property name="geometry">
         <rect>
          <x>120</x>
-         <y>160</y>
+         <y>120</y>
          <width>113</width>
          <height>22</height>
         </rect>
@@ -196,7 +196,7 @@ border-color: rgb(117, 76, 36);</string>
         <string>supprimer</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_12">
+      <widget class="QLineEdit" name="lineEdit_cin_supp">
        <property name="geometry">
         <rect>
          <x>30</x>
