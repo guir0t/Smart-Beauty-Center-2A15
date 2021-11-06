@@ -154,11 +154,24 @@ border-color: rgb(117, 76, 36);</string>
         <string>ajouter</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_modifier">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>170</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>modifier</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>140</x>
         <y>300</y>
         <width>251</width>
         <height>151</height>
@@ -204,91 +217,6 @@ border-color: rgb(117, 76, 36);</string>
        </property>
        <property name="text">
         <string>supprimer</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_3">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>300</y>
-        <width>291</width>
-        <height>161</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(198, 156, 109);</string>
-      </property>
-      <property name="title">
-       <string>modifier un client</string>
-      </property>
-      <widget class="QLabel" name="label_12">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>30</y>
-         <width>181</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>choisir un critère a modifier :</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_2">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>50</y>
-         <width>111</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>Prix</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Quantité</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>70</y>
-         <width>171</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>donner la nouvelle valeur :</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_11">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>90</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>120</y>
-         <width>93</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>modifier</string>
        </property>
       </widget>
      </widget>

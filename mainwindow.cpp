@@ -25,8 +25,8 @@ void MainWindow::on_pushButton_ajouter_clicked()
     int cin=ui->lineEdit_id->text().toInt();
     float prix=ui->lineEdit_prix->text().toFloat();
     int quantite=ui->lineEdit_quantite->text().toInt();
-    float produit_solde=ui->lineEdit_produit_solde->text().toFloat();
-    produit P(cin,prix,produit_solde,quantite);
+    float produitsolde=ui->lineEdit_produit_solde->text().toFloat();
+    produit P(cin,prix,produitsolde,quantite);
 
     bool test=P.ajouter();//inserer produit p dans la table
     if (test)
@@ -71,4 +71,28 @@ void MainWindow::on_pushButton_supprimer_clicked()
                          QObject::tr("Suppression failed.\n"
                                      "Click Cancel to exit."), QMessageBox::Cancel);
 
+}
+
+
+void MainWindow::on_pushButton_modifier_clicked()
+{
+    int cin=ui->lineEdit_id->text().toInt();
+    float prix=ui->lineEdit_prix->text().toFloat();
+    int quantite=ui->lineEdit_quantite->text().toInt();
+    float produitsolde=ui->lineEdit_produit_solde->text().toFloat();
+    produit P(cin,prix,produitsolde,quantite);
+      bool test=P.modifier(cin,prix,produitsolde,quantite);//modifier employe
+      if (test)
+      {
+
+  ui->tableView->setModel(P.afficher());
+          QMessageBox::information(nullptr,QObject::tr("ok"),
+                                   QObject::tr("Modification effectué \n"
+                                               "Click Cancel to exist ."),QMessageBox::Cancel);
+
+      }
+      else
+            QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                        QObject::tr("Modification failed.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
 }

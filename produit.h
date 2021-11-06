@@ -10,7 +10,7 @@ class produit
     int cin;
     float prix;
     int quantite;
-    float produit_solde;
+    float produitsolde;
 public:
     //construc
     produit();
@@ -19,17 +19,17 @@ public:
     int getCin();
     float getPrix();
     int getQuantite();
-    float getProduit_Solde();
+    float getProduitSolde();
     //setters
     void setCin(int c);
     void setPrix(float p);
     void setQuantite(int q);
-    void setProduit_Solde(float ps);
+    void setProduitSolde(float ps);
      //ajouter afficher supprimer (methode de base )
     bool ajouter ();
     QSqlQueryModel * afficher();
     bool supprimer(int);
-
+    bool modifier(int,float,float,int);
 
 
 };
