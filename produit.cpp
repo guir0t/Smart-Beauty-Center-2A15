@@ -1,4 +1,9 @@
 #include "produit.h"
+produit::produit()
+{
+
+    cin=prix=quantite=produit_solde=0;
+}
 produit::produit(int c,float p,float ps,int q)
 {
     this ->cin=c;
@@ -16,6 +21,8 @@ void produit::setCin(int c){this->cin=c;}
 void produit::setPrix(float p){this->prix=p;}
 void produit::setQuantite(int q){this->quantite=q;}
 void produit::setProduit_Solde(float ps){this->produit_solde=ps;}
+
+
 bool produit::ajouter()
 {
     QSqlQuery query ;
@@ -35,16 +42,24 @@ bool produit::ajouter()
     // envoie de requete pour l'executer ;
     return query.exec();
 }
-
-/* QSqlQueryModel * produit::afficher()
+QSqlQueryModel * produit::afficher()
 {
- //to do
-}*/
-bool produit::supprimer(int)
-{
-    QSqlQuery query;
-    query.prepare(" Delete from produit where cin=:cin");
-    query.bindValue(0, cin);
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from produit");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("cin"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("prix"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("produit_solde"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("quantite"));
 
-  return  query.exec();
+    return model;
+    }
+
+
+bool produit::supprimer(int cin)
+{
+QSqlQuery query;
+QString cin_string =QString::number(cin);
+query.prepare("Delete from produit where cin=:cin");
+query.bindValue(":cin",cin_string);
+return    query.exec();
 }

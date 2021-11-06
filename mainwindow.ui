@@ -183,19 +183,6 @@ border-color: rgb(117, 76, 36);</string>
         <string>choisir l'id de produit a supprimer :</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>100</y>
-         <width>111</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>supprimer</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="lineEdit_cin_supp">
        <property name="geometry">
         <rect>
@@ -204,6 +191,19 @@ border-color: rgb(117, 76, 36);</string>
          <width>161</width>
          <height>22</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_supprimer">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>110</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>supprimer</string>
        </property>
       </widget>
      </widget>
@@ -347,6 +347,16 @@ border-color: rgb(117, 76, 36);</string>
       </property>
       <property name="text">
        <string>statistique</string>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tableView">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>50</y>
+        <width>381</width>
+        <height>391</height>
+       </rect>
       </property>
      </widget>
     </widget>

@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+ui->tableView->setModel(Etmp.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +31,8 @@ void MainWindow::on_pushButton_ajouter_clicked()
     bool test=P.ajouter();//inserer produit p dans la table
     if (test)
     {
+        ui->tableView->setModel(P.afficher());
+
         QMessageBox::information(nullptr,QObject::tr("ok"),
                                  QObject::tr("ajout effectué \n"
                                              "Click Cancel to exist ."),QMessageBox::Cancel);
@@ -43,21 +47,28 @@ void MainWindow::on_pushButton_ajouter_clicked()
 
 }
 
-/*void MainWindow::on_pushButton_4_clicked()
-{
-    produit pp;
 
-    pp.setCin(ui->lineEdit_cin_supp->text().toInt());
-    bool test=pp.supprimer(pp.getCin());
-        if(test)
-    {
-            ui->tab_2->setModel(pp.afficher());
-            QMessageBox::information(nullptr, QObject::tr("ok"),
-                        QObject::tr("suppresion effectué.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);}
-    else
-    QMessageBox::critical(nullptr, QObject::tr("echec"),
-                QObject::tr("suprresion non effectué.\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+void MainWindow::on_pushButton_supprimer_clicked()
+{
+    //recuperation du cin
+       int cin=ui->lineEdit_cin_supp->text().toInt();produit P1;
+       bool test=P1.supprimer(cin);
+       ui->tableView->setModel(P1.afficher());
+
+
+       if (test)
+       {
+
+           QMessageBox::information(nullptr,QObject::tr("ok"),
+                                    QObject::tr("suppression effectué \n"
+                                                "Click Cancel to exist ."),QMessageBox::Cancel);
+
+       }
+       else
+             QMessageBox::critical(nullptr, QObject::tr("no"),
+                         QObject::tr("Suppression failed.\n"
+                                     "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
-*/
