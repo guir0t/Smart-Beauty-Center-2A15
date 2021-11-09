@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 ui->tableView->setModel(Etmp.afficher());
+ui->lineEdit_id->setValidator(new QIntValidator(0,99999999,this));
+ui->lineEdit_quantite->setValidator(new QIntValidator(0,99999999,this));
 }
 
 MainWindow::~MainWindow()
@@ -95,4 +97,48 @@ void MainWindow::on_pushButton_modifier_clicked()
             QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
                         QObject::tr("Modification failed.\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_pushButton_tricroissant_clicked()
+{
+
+
+    produit P;
+    ui->tableView->setModel(P.tri_prixcroissant());
+    ui->tableView->setModel(P.afficher());
+    bool test=P.tri_prixcroissant();//tri produit
+    if (test)
+    {
+
+ui->tableView->setModel(P.tri_prixcroissant());
+        QMessageBox::information(nullptr,QObject::tr("ok"),
+                                 QObject::tr("tri croissante effectué \n"
+                                             "Click Cancel to exist ."),QMessageBox::Cancel);
+
+    }
+    else
+          QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                      QObject::tr("tri croissante failed.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_pushButton_tridecroissant_clicked()
+{
+    produit P;
+       ui->tableView->setModel(P.tri_prixdecroissant());
+       ui->tableView->setModel(P.afficher());
+       bool test=P.tri_prixdecroissant();//tri produit
+       if (test)
+       {
+
+   ui->tableView->setModel(P.tri_prixdecroissant());
+           QMessageBox::information(nullptr,QObject::tr("ok"),
+                                    QObject::tr("tri decroissante  effectué \n"
+                                                "Click Cancel to exist ."),QMessageBox::Cancel);
+
+       }
+       else
+             QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                         QObject::tr("tri decroissante failed.\n"
+                                     "Click Cancel to exit."), QMessageBox::Cancel);
 }

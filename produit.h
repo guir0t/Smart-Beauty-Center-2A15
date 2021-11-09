@@ -30,7 +30,8 @@ public:
     QSqlQueryModel * afficher();
     bool supprimer(int);
     bool modifier(int,float,float,int);
-
+    QSqlQueryModel * tri_prixdecroissant();
+       QSqlQueryModel * tri_prixcroissant();
 
 };
 

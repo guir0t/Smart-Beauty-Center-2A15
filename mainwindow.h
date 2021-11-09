@@ -23,6 +23,10 @@ private slots:
 
     void on_pushButton_modifier_clicked();
 
+    void on_pushButton_tricroissant_clicked();
+
+    void on_pushButton_tridecroissant_clicked();
+
 private:
     Ui::MainWindow *ui;
     produit Etmp;

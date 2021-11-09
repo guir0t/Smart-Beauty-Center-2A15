@@ -79,3 +79,27 @@ query.bindValue(":quantite", quantite_string);
 
 return    query.exec();
 }
+
+QSqlQueryModel * produit::tri_prixcroissant()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+          model->setQuery("SELECT * FROM produit ORDER BY prix ASC ");
+          model->setHeaderData(0,Qt::Horizontal,QObject::tr("cin"));
+          model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
+        model->setHeaderData(2,Qt::Horizontal,QObject::tr("produitsolde"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("quantite"));
+
+    return model;
+}
+QSqlQueryModel * produit::tri_prixdecroissant()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+          model->setQuery("SELECT * FROM produit ORDER BY prix DESC ");
+          model->setHeaderData(0,Qt::Horizontal,QObject::tr("cin"));
+          model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
+        model->setHeaderData(2,Qt::Horizontal,QObject::tr("produitsolde"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("quantite"));
+            return model;
+}
