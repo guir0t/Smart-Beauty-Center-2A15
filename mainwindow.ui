@@ -13,21 +13,28 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>50</x>
       <y>20</y>
-      <width>731</width>
+      <width>711</width>
       <height>521</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(252, 231, 212);</string>
+     <string notr="true">color: rgb(198, 156, 109);
+border-color: rgb(117, 76, 36);
+ background-color: rgb(252, 231, 212);
+
+</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -36,15 +43,17 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>20</x>
         <y>10</y>
-        <width>411</width>
+        <width>461</width>
         <height>281</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(198, 156, 109);
-border-color: rgb(117, 76, 36);</string>
+border-color: rgb(117, 76, 36);
+
+</string>
       </property>
       <property name="title">
        <string>ajouter un client</string>
@@ -59,7 +68,7 @@ border-color: rgb(117, 76, 36);</string>
         </rect>
        </property>
        <property name="text">
-        <string>Cin</string>
+        <string>ID</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_id">
@@ -70,6 +79,9 @@ border-color: rgb(117, 76, 36);</string>
          <width>113</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="maxLength">
+        <number>8</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -93,6 +105,12 @@ border-color: rgb(117, 76, 36);</string>
          <width>113</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>32767</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_4">
@@ -140,6 +158,12 @@ border-color: rgb(117, 76, 36);</string>
          <height>22</height>
         </rect>
        </property>
+       <property name="maxLength">
+        <number>4</number>
+       </property>
+       <property name="placeholderText">
+        <string>float from 0 to 1</string>
+       </property>
       </widget>
       <widget class="QPushButton" name="pushButton_ajouter">
        <property name="geometry">
@@ -149,6 +173,13 @@ border-color: rgb(117, 76, 36);</string>
          <width>93</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
        </property>
        <property name="text">
         <string>ajouter</string>
@@ -163,8 +194,51 @@ border-color: rgb(117, 76, 36);</string>
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
+       </property>
        <property name="text">
         <string>modifier</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>190</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>id_fournisseur</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>180</y>
+         <width>73</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_combo">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>180</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>
@@ -205,6 +279,12 @@ border-color: rgb(117, 76, 36);</string>
          <height>22</height>
         </rect>
        </property>
+       <property name="maxLength">
+        <number>8</number>
+       </property>
+       <property name="placeholderText">
+        <string>                 ID</string>
+       </property>
       </widget>
       <widget class="QPushButton" name="pushButton_supprimer">
        <property name="geometry">
@@ -214,6 +294,13 @@ border-color: rgb(117, 76, 36);</string>
          <width>93</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
        </property>
        <property name="text">
         <string>supprimer</string>
@@ -234,6 +321,13 @@ border-color: rgb(117, 76, 36);</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
+      </property>
       <property name="text">
        <string>afficher le produit le plus consommable</string>
       </property>
@@ -246,6 +340,13 @@ border-color: rgb(117, 76, 36);</string>
         <width>261</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
       </property>
       <property name="text">
        <string>afficher les produits selon le prix croissant </string>
@@ -260,6 +361,13 @@ border-color: rgb(117, 76, 36);</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
+      </property>
       <property name="text">
        <string>exporter en excel </string>
       </property>
@@ -272,6 +380,13 @@ border-color: rgb(117, 76, 36);</string>
         <width>93</width>
         <height>28</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
       </property>
       <property name="text">
        <string>statistique</string>
@@ -296,10 +411,22 @@ border-color: rgb(117, 76, 36);</string>
         <height>28</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
+      </property>
       <property name="text">
        <string>afficher les produits selon le prix decroissant </string>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
     </widget>
    </widget>
   </widget>

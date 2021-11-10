@@ -23,28 +23,30 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_ajouter_clicked()
 {
 
-      //recuperation des info dans les4 champs
-    int cin=ui->lineEdit_id->text().toInt();
-    float prix=ui->lineEdit_prix->text().toFloat();
-    int quantite=ui->lineEdit_quantite->text().toInt();
-    float produitsolde=ui->lineEdit_produit_solde->text().toFloat();
-    produit P(cin,prix,produitsolde,quantite);
+    //recuperation des info dans les4 champs
+      int cin=ui->lineEdit_id->text().toInt();
+      float prix=ui->lineEdit_prix->text().toFloat();
+      int quantite=ui->lineEdit_quantite->text().toInt();
+      float produitsolde=ui->lineEdit_produit_solde->text().toFloat();
+     int id_fournisseur=ui->comboBox->currentText().toInt();
 
-    bool test=P.ajouter();//inserer produit p dans la table
-    if (test)
-    {
-        ui->tableView->setModel(P.afficher());
+      produit P(cin,prix,produitsolde,quantite,id_fournisseur);
 
-        QMessageBox::information(nullptr,QObject::tr("ok"),
-                                 QObject::tr("ajout effectué \n"
-                                             "Click Cancel to exist ."),QMessageBox::Cancel);
-    }
-    else{
-        QMessageBox::critical(nullptr,QObject::tr(" not ok"),
-                                 QObject::tr("ajout non effectué \n"
-                                             "Click Cancel to exist ."),QMessageBox::Cancel);
+      bool test=P.ajouter();//inserer produit p dans la table
+      if (test)
+      {
+          ui->tableView->setModel(P.afficher());
 
-    }
+          QMessageBox::information(nullptr,QObject::tr("ok"),
+                                   QObject::tr("ajout effectué \n"
+                                               "Click Cancel to exist ."),QMessageBox::Cancel);
+      }
+      else{
+          QMessageBox::critical(nullptr,QObject::tr(" not ok"),
+                                   QObject::tr("ajout non effectué \n"
+                                               "Click Cancel to exist ."),QMessageBox::Cancel);
+
+      }
 
 
 }
@@ -82,8 +84,9 @@ void MainWindow::on_pushButton_modifier_clicked()
     float prix=ui->lineEdit_prix->text().toFloat();
     int quantite=ui->lineEdit_quantite->text().toInt();
     float produitsolde=ui->lineEdit_produit_solde->text().toFloat();
-    produit P(cin,prix,produitsolde,quantite);
-      bool test=P.modifier(cin,prix,produitsolde,quantite);//modifier employe
+    int id_fournisseur=ui->comboBox->currentText().toInt();
+        produit P(cin,prix,produitsolde,quantite,id_fournisseur);
+      bool test=P.modifier(cin,prix,produitsolde,quantite,id_fournisseur);//modifier produit
       if (test)
       {
 
@@ -142,3 +145,15 @@ void MainWindow::on_pushButton_tridecroissant_clicked()
                          QObject::tr("tri decroissante failed.\n"
                                      "Click Cancel to exit."), QMessageBox::Cancel);
 }
+
+void MainWindow::on_pushButton_combo_clicked()
+{
+    QSqlQuery query2("SELECT id_fournisseur FROM fournisseurs");
+            while (query2.next())
+                {
+                  QString nsch=query2.value(0).toString();
+                  ui->comboBox->addItem(nsch);
+                  ui->comboBox->setEditText(nsch);
+                }
+}
+
