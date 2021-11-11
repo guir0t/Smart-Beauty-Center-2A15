@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTableWidget>
+#include "client.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +17,19 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+
+
+    void on_pushButton_ajouter_clicked();
+
+    void on_pushButton_Supprimer_clicked();
+
+    void on_pushButton_modifier_clicked();
+
+    void on_pushButton_supprimer_clicked();
+
 private:
     Ui::MainWindow *ui;
+    client Etmp;
 };
 #endif // MAINWINDOW_H

@@ -1,22 +1,25 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 #include<QString>
+#include<QSqlQuery>
+#include<QSqlQueryModel>
 
 class client
 {
+    QString  prenom, nom,adresse;
+    int cin,tel;
+
+
 public:
-    void setcin(QString n);
-    void setprenom(QString n);
-    void setnom(QString n);
-    void settel(QString n);
-    void setAdresse(QString n);
-    QString get_cin();
-    QString get_prenom();
-    QString get_nom();
-    QString get_tel();
-    QString get_Adresse();
-    client();
-private:
-    QString cin, prenom, nom, tel,adresse;
+   client();
+   client(int ,QString ,QString ,int,QString );
+
+   //foncionalitee de base relatives
+    bool ajouter();
+    QSqlQueryModel * afficher();
+    bool supprimer(int);
+    bool modifier(int,QString,QString,int,QString);
+
+
 };
 #endif // CLIENT_H
