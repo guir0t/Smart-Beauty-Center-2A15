@@ -244,13 +244,30 @@ void MainWindow::on_pushButton_trid_clicked()
     }
 }
 
+
+
+
+
 void MainWindow::on_pushButton_3_clicked()
 {
-    QSqlQuery query2("SELECT CIN FROM COMMANDE_VENTE ");
-            while (query2.next())
-                {
-                  QString nsch=query2.value(0).toString();
-                  ui->comboBox_cin->addItem(nsch);
-                  ui->comboBox_cin->setEditText(nsch);
-                }
-}
+    produit p;
+    QString choix=ui->comboBox_chercher->currentText();
+
+    if (choix=="id_produit")
+    {
+        QString cin = ui->lineEdit_rech->text();
+        ui->tableView_2->setModel(p.rechercher(cin));
+    }
+    if (choix=="prix")
+    {
+        QString prix = ui->lineEdit_rech->text();
+        ui->tableView_2->setModel(p.rechercherprix(prix));
+    }
+    if (choix=="quantite")
+    {
+        QString quantite = ui->lineEdit_rech->text();
+        ui->tableView_2->setModel(p.rechercherquantite(quantite));
+    }
+
+    }
+

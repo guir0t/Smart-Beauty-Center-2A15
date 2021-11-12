@@ -539,58 +539,86 @@ QPushButton{
      <attribute name="title">
       <string>Page</string>
      </attribute>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QTableView" name="tableView_2">
       <property name="geometry">
        <rect>
-        <x>282</x>
+        <x>80</x>
+        <y>70</y>
+        <width>501</width>
+        <height>331</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_rech">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
         <y>30</y>
-        <width>171</width>
+        <width>113</width>
         <height>22</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">color:black;</string>
+       <string notr="true"/>
       </property>
       <property name="placeholderText">
-       <string>entrer l'id produit a chercher</string>
+       <string>tapez ici</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QStackedWidget" name="stackedWidget">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>30</y>
-        <width>131</width>
-        <height>28</height>
+        <x>-1</x>
+        <y>-21</y>
+        <width>711</width>
+        <height>521</height>
        </rect>
       </property>
-      <property name="text">
-       <string>chercher un produit </string>
-      </property>
+      <widget class="QWidget" name="page">
+       <widget class="QComboBox" name="comboBox_chercher">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>50</y>
+          <width>101</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>id_produit</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>prix</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>quantite</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>470</x>
+          <y>50</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>chercher</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2"/>
      </widget>
-     <widget class="QComboBox" name="comboBox_cin">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>240</y>
-        <width>73</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>240</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
+     <zorder>stackedWidget</zorder>
+     <zorder>tableView_2</zorder>
+     <zorder>lineEdit_rech</zorder>
     </widget>
    </widget>
   </widget>

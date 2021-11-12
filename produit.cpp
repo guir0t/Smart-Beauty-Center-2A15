@@ -1,4 +1,5 @@
 #include "produit.h"
+#include <QMessageBox>
 produit::produit()
 {
 
@@ -181,4 +182,66 @@ QSqlQueryModel * produit::tri_produitsoldedecroissant()
             model->setHeaderData(5,Qt::Horizontal,QObject::tr("nom_produit"));
 
     return model;
+}
+bool produit::rech(int x){
+    QSqlQuery query;
+    query.prepare("select * from produit where cin = :cin;");
+    query.bindValue(":cin", x);
+    return query.exec();
+}
+QSqlQueryModel* produit::rechercher(QString a)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from produit where cin ='"+a+"' ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_produit"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("produitsolde"));
+      model->setHeaderData(3,Qt::Horizontal,QObject::tr("quantite"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("id_fournisseur"));
+      model->setHeaderData(5,Qt::Horizontal,QObject::tr("nom_produit"));
+        return model;
+
+}
+
+bool produit::rechprix(int x){
+    QSqlQuery query;
+    query.prepare("select * from produit where prix = :prix;");
+    query.bindValue(":prix", x);
+    return query.exec();
+}
+QSqlQueryModel* produit::rechercherprix(QString a)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from produit where prix ='"+a+"' ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_produit"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("produitsolde"));
+      model->setHeaderData(3,Qt::Horizontal,QObject::tr("quantite"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("id_fournisseur"));
+      model->setHeaderData(5,Qt::Horizontal,QObject::tr("nom_produit"));
+        return model;
+
+}
+
+bool produit::rechquantite(int x){
+    QSqlQuery query;
+    query.prepare("select * from produit where quantite = :quantite;");
+    query.bindValue(":quantite", x);
+    return query.exec();
+}
+QSqlQueryModel* produit::rechercherquantite(QString a)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("select * from produit where quantite ='"+a+"' ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id_produit"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("produitsolde"));
+      model->setHeaderData(3,Qt::Horizontal,QObject::tr("quantite"));
+      model->setHeaderData(4,Qt::Horizontal,QObject::tr("id_fournisseur"));
+      model->setHeaderData(5,Qt::Horizontal,QObject::tr("nom_produit"));
+        return model;
+
 }

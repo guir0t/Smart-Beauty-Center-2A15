@@ -42,7 +42,12 @@ public:
          QSqlQueryModel * tri_produitsoldecroissant();
          QSqlQueryModel * tri_quantitedecroissant();
          QSqlQueryModel * tri_produitsoldedecroissant();
-
+            bool rech(int );
+        QSqlQueryModel* rechercher(QString );
+        bool rechprix(int );
+    QSqlQueryModel* rechercherprix(QString );
+    bool rechquantite(int );
+QSqlQueryModel* rechercherquantite(QString );
 };
 
 #endif // PRODUIT_H
