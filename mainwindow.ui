@@ -20,7 +20,7 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>80</x>
       <y>20</y>
       <width>711</width>
       <height>521</height>
@@ -34,7 +34,7 @@ border-color: rgb(117, 76, 36);
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -168,8 +168,8 @@ border-color: rgb(117, 76, 36);
       <widget class="QPushButton" name="pushButton_ajouter">
        <property name="geometry">
         <rect>
-         <x>280</x>
-         <y>120</y>
+         <x>350</x>
+         <y>60</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -179,6 +179,9 @@ border-color: rgb(117, 76, 36);
 color:#fff;
 border:15px;
 background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
 }</string>
        </property>
        <property name="text">
@@ -188,8 +191,8 @@ background: rgb(198, 156, 109);
       <widget class="QPushButton" name="pushButton_modifier">
        <property name="geometry">
         <rect>
-         <x>280</x>
-         <y>170</y>
+         <x>350</x>
+         <y>100</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -199,6 +202,9 @@ background: rgb(198, 156, 109);
 color:#fff;
 border:15px;
 background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
 }</string>
        </property>
        <property name="text">
@@ -221,7 +227,7 @@ background: rgb(198, 156, 109);
       <widget class="QComboBox" name="comboBox">
        <property name="geometry">
         <rect>
-         <x>120</x>
+         <x>110</x>
          <y>180</y>
          <width>73</width>
          <height>22</height>
@@ -231,14 +237,47 @@ background: rgb(198, 156, 109);
       <widget class="QPushButton" name="pushButton_combo">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>190</x>
          <y>180</y>
-         <width>21</width>
-         <height>21</height>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+ border: 3px solid white;
+}
+QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}</string>
+       </property>
+       <property name="text">
+        <string>actualiser les fournisseurs</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>230</y>
+         <width>81</width>
+         <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string/>
+        <string>nom produit</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_nomproduit">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>220</y>
+         <width>113</width>
+         <height>22</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -300,6 +339,9 @@ background: rgb(198, 156, 109);
 color:#fff;
 border:15px;
 background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
 }</string>
        </property>
        <property name="text">
@@ -326,30 +368,13 @@ background: rgb(198, 156, 109);
 color:#fff;
 border:15px;
 background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
 }</string>
       </property>
       <property name="text">
        <string>afficher le produit le plus consommable</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_tricroissant">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>120</y>
-        <width>261</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton:hover {
-color:#fff;
-border:15px;
-background: rgb(198, 156, 109);
-}</string>
-      </property>
-      <property name="text">
-       <string>afficher les produits selon le prix croissant </string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_5">
@@ -366,6 +391,9 @@ background: rgb(198, 156, 109);
 color:#fff;
 border:15px;
 background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
 }</string>
       </property>
       <property name="text">
@@ -386,6 +414,9 @@ background: rgb(198, 156, 109);
 color:#fff;
 border:15px;
 background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
 }</string>
       </property>
       <property name="text">
@@ -402,12 +433,42 @@ background: rgb(198, 156, 109);
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_tridecroissant">
+     <widget class="QComboBox" name="comboBox_tri">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>90</y>
-        <width>281</width>
+        <x>460</x>
+        <y>40</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>prix</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>produitsolde</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>quantite</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_tri">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>40</y>
+        <width>93</width>
         <height>28</height>
        </rect>
       </property>
@@ -416,17 +477,120 @@ background: rgb(198, 156, 109);
 color:#fff;
 border:15px;
 background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
 }</string>
       </property>
       <property name="text">
-       <string>afficher les produits selon le prix decroissant </string>
+       <string>tri croissant</string>
       </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_trid">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>80</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover {
+color:#fff;
+border:15px;
+background: rgb(198, 156, 109);
+}
+QPushButton{
+ border: 3px solid white;
+}</string>
+      </property>
+      <property name="text">
+       <string>tri decroissant</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_trid">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>80</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>prix</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>produitsolde</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>quantite</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
       <string>Page</string>
      </attribute>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>282</x>
+        <y>30</y>
+        <width>171</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:black;</string>
+      </property>
+      <property name="placeholderText">
+       <string>entrer l'id produit a chercher</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>30</y>
+        <width>131</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>chercher un produit </string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_cin">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>240</y>
+        <width>73</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>240</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

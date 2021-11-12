@@ -23,11 +23,14 @@ private slots:
 
     void on_pushButton_modifier_clicked();
 
-    void on_pushButton_tricroissant_clicked();
-
-    void on_pushButton_tridecroissant_clicked();
 
     void on_pushButton_combo_clicked();
+
+    void on_pushButton_tri_clicked();
+
+    void on_pushButton_trid_clicked();
+
+    void on_pushButton_3_clicked();
 
 private:
     Ui::MainWindow *ui;

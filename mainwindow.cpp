@@ -29,8 +29,8 @@ void MainWindow::on_pushButton_ajouter_clicked()
       int quantite=ui->lineEdit_quantite->text().toInt();
       float produitsolde=ui->lineEdit_produit_solde->text().toFloat();
      int id_fournisseur=ui->comboBox->currentText().toInt();
-
-      produit P(cin,prix,produitsolde,quantite,id_fournisseur);
+        QString nom_produit=ui->lineEdit_nomproduit->text();
+      produit P(cin,prix,produitsolde,quantite,id_fournisseur,nom_produit);
 
       bool test=P.ajouter();//inserer produit p dans la table
       if (test)
@@ -85,8 +85,9 @@ void MainWindow::on_pushButton_modifier_clicked()
     int quantite=ui->lineEdit_quantite->text().toInt();
     float produitsolde=ui->lineEdit_produit_solde->text().toFloat();
     int id_fournisseur=ui->comboBox->currentText().toInt();
-        produit P(cin,prix,produitsolde,quantite,id_fournisseur);
-      bool test=P.modifier(cin,prix,produitsolde,quantite,id_fournisseur);//modifier produit
+   QString nom_produit=ui->lineEdit_nomproduit->text();
+   produit P(cin,prix,produitsolde,quantite,id_fournisseur,nom_produit);
+      bool test=P.modifier(cin,prix,produitsolde,quantite,id_fournisseur,nom_produit);//modifier produit
       if (test)
       {
 
@@ -102,49 +103,7 @@ void MainWindow::on_pushButton_modifier_clicked()
                                     "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
-void MainWindow::on_pushButton_tricroissant_clicked()
-{
 
-
-    produit P;
-    ui->tableView->setModel(P.tri_prixcroissant());
-    ui->tableView->setModel(P.afficher());
-    bool test=P.tri_prixcroissant();//tri produit
-    if (test)
-    {
-
-ui->tableView->setModel(P.tri_prixcroissant());
-        QMessageBox::information(nullptr,QObject::tr("ok"),
-                                 QObject::tr("tri croissante effectué \n"
-                                             "Click Cancel to exist ."),QMessageBox::Cancel);
-
-    }
-    else
-          QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
-                      QObject::tr("tri croissante failed.\n"
-                                  "Click Cancel to exit."), QMessageBox::Cancel);
-}
-
-void MainWindow::on_pushButton_tridecroissant_clicked()
-{
-    produit P;
-       ui->tableView->setModel(P.tri_prixdecroissant());
-       ui->tableView->setModel(P.afficher());
-       bool test=P.tri_prixdecroissant();//tri produit
-       if (test)
-       {
-
-   ui->tableView->setModel(P.tri_prixdecroissant());
-           QMessageBox::information(nullptr,QObject::tr("ok"),
-                                    QObject::tr("tri decroissante  effectué \n"
-                                                "Click Cancel to exist ."),QMessageBox::Cancel);
-
-       }
-       else
-             QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
-                         QObject::tr("tri decroissante failed.\n"
-                                     "Click Cancel to exit."), QMessageBox::Cancel);
-}
 
 void MainWindow::on_pushButton_combo_clicked()
 {
@@ -157,3 +116,141 @@ void MainWindow::on_pushButton_combo_clicked()
                 }
 }
 
+
+void MainWindow::on_pushButton_tri_clicked()
+{
+     produit P;
+     QString choix=ui->comboBox_tri->currentText();
+     if (choix=="prix")
+     {
+         ui->tableView->setModel(P.tri_prixcroissant());
+         ui->tableView->setModel(P.afficher());
+         bool test=P.tri_prixcroissant();//tri produit
+         if (test)
+         {
+
+     ui->tableView->setModel(P.tri_prixcroissant());
+             QMessageBox::information(nullptr,QObject::tr("ok"),
+                                      QObject::tr("tri croissante effectué \n"
+                                                  "Click Cancel to exist ."),QMessageBox::Cancel);
+
+         }
+         else
+               QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                           QObject::tr("tri croissante failed.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+     }
+     if (choix=="produitsolde")
+     {
+         ui->tableView->setModel(P.tri_produitsoldecroissant());
+         ui->tableView->setModel(P.afficher());
+         bool test=P.tri_produitsoldecroissant();//tri produit
+         if (test)
+         {
+
+     ui->tableView->setModel(P.tri_produitsoldecroissant());
+             QMessageBox::information(nullptr,QObject::tr("ok"),
+                                      QObject::tr("tri croissante effectué \n"
+                                                  "Click Cancel to exist ."),QMessageBox::Cancel);
+
+         }
+         else
+               QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                           QObject::tr("tri croissante failed.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+     }
+     if (choix=="quantite")
+     {
+         ui->tableView->setModel(P.tri_quantitecroissant());
+         ui->tableView->setModel(P.afficher());
+         bool test=P.tri_quantitecroissant();//tri produit
+         if (test)
+         {
+
+     ui->tableView->setModel(P.tri_quantitecroissant());
+             QMessageBox::information(nullptr,QObject::tr("ok"),
+                                      QObject::tr("tri croissante effectué \n"
+                                                  "Click Cancel to exist ."),QMessageBox::Cancel);
+
+         }
+         else
+               QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                           QObject::tr("tri croissante failed.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+     }
+
+}
+
+void MainWindow::on_pushButton_trid_clicked()
+{
+    produit P;
+    QString choix=ui->comboBox_trid->currentText();
+    if (choix=="prix")
+    {
+        ui->tableView->setModel(P.tri_prixdecroissant());
+        ui->tableView->setModel(P.afficher());
+        bool test=P.tri_prixdecroissant();//tri produit
+        if (test)
+        {
+
+    ui->tableView->setModel(P.tri_prixdecroissant());
+            QMessageBox::information(nullptr,QObject::tr("ok"),
+                                     QObject::tr("tri decroissante effectué \n"
+                                                 "Click Cancel to exist ."),QMessageBox::Cancel);
+
+        }
+        else
+              QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                          QObject::tr("tri decroissante failed.\n"
+                                      "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    if (choix=="produitsolde")
+    {
+        ui->tableView->setModel(P.tri_produitsoldedecroissant());
+        ui->tableView->setModel(P.afficher());
+        bool test=P.tri_produitsoldedecroissant();//tri produit
+        if (test)
+        {
+
+    ui->tableView->setModel(P.tri_produitsoldedecroissant());
+            QMessageBox::information(nullptr,QObject::tr("ok"),
+                                     QObject::tr("tri decroissante effectué \n"
+                                                 "Click Cancel to exist ."),QMessageBox::Cancel);
+
+        }
+        else
+              QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                          QObject::tr("tri decroissante failed.\n"
+                                      "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    if (choix=="quantite")
+    {
+        ui->tableView->setModel(P.tri_quantitedecroissant());
+        ui->tableView->setModel(P.afficher());
+        bool test=P.tri_quantitedecroissant();//tri produit
+        if (test)
+        {
+
+    ui->tableView->setModel(P.tri_quantitedecroissant());
+            QMessageBox::information(nullptr,QObject::tr("ok"),
+                                     QObject::tr("tri decroissante effectué \n"
+                                                 "Click Cancel to exist ."),QMessageBox::Cancel);
+
+        }
+        else
+              QMessageBox::critical(nullptr, QObject::tr("nonnnn"),
+                          QObject::tr("tri decroissante failed.\n"
+                                      "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QSqlQuery query2("SELECT CIN FROM COMMANDE_VENTE ");
+            while (query2.next())
+                {
+                  QString nsch=query2.value(0).toString();
+                  ui->comboBox_cin->addItem(nsch);
+                  ui->comboBox_cin->setEditText(nsch);
+                }
+}
