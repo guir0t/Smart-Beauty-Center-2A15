@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "produit.h"
 #include <QMessageBox>
+#include <QMediaPlayer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -9,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-ui->tableView->setModel(Etmp.afficher());
+ui->tableView->setModel(tempProduit.afficher());
 ui->lineEdit_id->setValidator(new QIntValidator(0,99999999,this));
 ui->lineEdit_quantite->setValidator(new QIntValidator(0,99999999,this));
 }
@@ -87,8 +88,10 @@ void MainWindow::on_pushButton_modifier_clicked()
     int id_fournisseur=ui->comboBox->currentText().toInt();
    QString nom_produit=ui->lineEdit_nomproduit->text();
    produit P(cin,prix,produitsolde,quantite,id_fournisseur,nom_produit);
-      bool test=P.modifier(cin,prix,produitsolde,quantite,id_fournisseur,nom_produit);//modifier produit
-      if (test)
+
+   bool test=P.modifier(cin,prix,produitsolde,quantite,id_fournisseur,nom_produit);//modifier produit
+
+   if (test)
       {
 
   ui->tableView->setModel(P.afficher());
@@ -271,3 +274,72 @@ void MainWindow::on_pushButton_3_clicked()
 
     }
 
+
+void MainWindow::on_tabWidget_currentChanged(int index)
+{
+    // background //
+              QLinearGradient gradient(0, 0, 0, 400);
+              gradient.setColorAt(0, QColor(90, 90, 90));
+              gradient.setColorAt(0.38, QColor(105, 105, 105));
+              gradient.setColorAt(1, QColor(70, 70, 70));
+              ui->plot->setBackground(QBrush(gradient));
+
+              QCPBars *amande = new QCPBars(ui->plot->xAxis, ui->plot->yAxis);
+              amande->setAntialiased(false);
+              amande->setStackingGap(1);
+               //couleurs
+              amande->setName("Repartition des produit selon quantite ");
+              amande->setPen(QPen(QColor(0, 168, 140).lighter(130)));
+              amande->setBrush(QColor(0, 168, 140));
+
+               //axe des abscisses
+              QVector<double> ticks;
+              QVector<QString> labels;
+              tempProduit.statistique(&ticks,&labels);
+
+              QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+              textTicker->addTicks(ticks, labels);
+              ui->plot->xAxis->setTicker(textTicker);
+              ui->plot->xAxis->setTickLabelRotation(60);
+              ui->plot->xAxis->setSubTicks(false);
+              ui->plot->xAxis->setTickLength(0, 4);
+              ui->plot->xAxis->setRange(0, 8);
+              ui->plot->xAxis->setBasePen(QPen(Qt::white));
+              ui->plot->xAxis->setTickPen(QPen(Qt::white));
+              ui->plot->xAxis->grid()->setVisible(true);
+              ui->plot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+              ui->plot->xAxis->setTickLabelColor(Qt::white);
+              ui->plot->xAxis->setLabelColor(Qt::white);
+
+              // axe des ordonnées
+              ui->plot->yAxis->setRange(0,10);
+              ui->plot->yAxis->setPadding(5);
+              ui->plot->yAxis->setLabel("Statistiques");
+              ui->plot->yAxis->setBasePen(QPen(Qt::white));
+              ui->plot->yAxis->setTickPen(QPen(Qt::white));
+              ui->plot->yAxis->setSubTickPen(QPen(Qt::white));
+              ui->plot->yAxis->grid()->setSubGridVisible(true);
+              ui->plot->yAxis->setTickLabelColor(Qt::white);
+              ui->plot->yAxis->setLabelColor(Qt::white);
+              ui->plot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
+              ui->plot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+
+              // ajout des données  (statistiques de la quantité)//
+
+              QVector<double> PlaceData;
+              QSqlQuery q1("select quantite from produit");
+              while (q1.next()) {
+                            int  nbr_fautee = q1.value(0).toInt();
+                            PlaceData<< nbr_fautee;
+                              }
+              amande->setData(ticks, PlaceData);
+
+              ui->plot->legend->setVisible(true);
+              ui->plot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
+              ui->plot->legend->setBrush(QColor(255, 255, 255, 100));
+              ui->plot->legend->setBorderPen(Qt::NoPen);
+              QFont legendFont = font();
+              legendFont.setPointSize(5);
+              ui->plot->legend->setFont(legendFont);
+              ui->plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+}

@@ -33,8 +33,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_tabWidget_currentChanged(int index);
+
 private:
     Ui::MainWindow *ui;
-    produit Etmp;
+    produit tempProduit;
 };
 #endif // MAINWINDOW_H

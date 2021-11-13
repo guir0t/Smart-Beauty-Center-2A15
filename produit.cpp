@@ -1,5 +1,6 @@
 #include "produit.h"
 #include <QMessageBox>
+
 produit::produit()
 {
 
@@ -244,4 +245,17 @@ QSqlQueryModel* produit::rechercherquantite(QString a)
       model->setHeaderData(5,Qt::Horizontal,QObject::tr("nom_produit"));
         return model;
 
+}
+void produit::statistique(QVector<double>* ticks,QVector<QString> *labels)
+{
+    QSqlQuery q;
+    int i=0;
+    q.exec("select quantite from produit");
+    while (q.next())
+    {
+        QString identifiant = q.value(0).toString();
+        i++;
+        *ticks<<i;
+        *labels <<identifiant;
+    }
 }

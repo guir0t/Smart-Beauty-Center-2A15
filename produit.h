@@ -3,6 +3,13 @@
 #include<QString>
 #include<QSqlQuery>
 #include<QSqlQueryModel>
+#include <QFrame>
+#include <QtCharts/QtCharts>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
 
 class produit
 {
@@ -48,6 +55,9 @@ public:
     QSqlQueryModel* rechercherprix(QString );
     bool rechquantite(int );
 QSqlQueryModel* rechercherquantite(QString );
+void statistique(QVector<double>* ticks,QVector<QString> *labels);
+
 };
+
 
 #endif // PRODUIT_H
