@@ -35,6 +35,8 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_pushButton_exp_clicked();
+
 private:
     Ui::MainWindow *ui;
     produit tempProduit;

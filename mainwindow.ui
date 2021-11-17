@@ -34,7 +34,7 @@ border-color: rgb(117, 76, 36);
 </string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -279,6 +279,9 @@ background: rgb(198, 156, 109);
          <height>22</height>
         </rect>
        </property>
+       <property name="placeholderText">
+        <string>        Unique</string>
+       </property>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
@@ -377,7 +380,7 @@ QPushButton{
        <string>afficher le produit le plus consommable</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="pushButton_exp">
       <property name="geometry">
        <rect>
         <x>510</x>

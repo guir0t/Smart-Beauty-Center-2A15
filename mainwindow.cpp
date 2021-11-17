@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->tableView->setModel(tempProduit.afficher());
 
-ui->tableView->setModel(tempProduit.afficher());
 ui->lineEdit_id->setValidator(new QIntValidator(0,99999999,this));
 ui->lineEdit_quantite->setValidator(new QIntValidator(0,99999999,this));
 }
@@ -288,7 +288,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
               amande->setAntialiased(false);
               amande->setStackingGap(1);
                //couleurs
-              amande->setName("Repartition des produit selon quantite ");
+              amande->setName("Repartition des produit selon prix ");
               amande->setPen(QPen(QColor(0, 168, 140).lighter(130)));
               amande->setBrush(QColor(0, 168, 140));
 
@@ -343,3 +343,45 @@ void MainWindow::on_tabWidget_currentChanged(int index)
               ui->plot->legend->setFont(legendFont);
               ui->plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 }
+
+void MainWindow::on_pushButton_exp_clicked()
+{
+    QTableView *table;
+                      table = ui->tableView;
+
+                      QString filters("CSV files (.csv);;All files (.*)");
+                      QString defaultFilter("CSV files (*.csv)");
+                      QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
+                                         filters, &defaultFilter);
+                      QFile file(fileName);
+
+                      QAbstractItemModel *model =  table->model();
+                      if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+                          QTextStream data(&file);
+                          QStringList strList;
+                          for (int i = 0; i < model->columnCount(); i++) {
+                              if (model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().length() > 0)
+                                  strList.append("\"" + model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString() + "\"");
+                              else
+                                  strList.append("");
+                          }
+                          data << strList.join(";") << "\n";
+                          for (int i = 0; i < model->rowCount(); i++) {
+                              strList.clear();
+                              for (int j = 0; j < model->columnCount(); j++) {
+
+                                  if (model->data(model->index(i, j)).toString().length() > 0)
+                                      strList.append("\"" + model->data(model->index(i, j)).toString() + "\"");
+                                  else
+                                      strList.append("");
+                              }
+                              data << strList.join(";") + "\n";
+                          }
+                          file.close();
+                          QMessageBox::information(nullptr, QObject::tr("Export excel"),
+                                                    QObject::tr("Export avec succes .\n"
+                                                                "Click OK to exit."), QMessageBox::Ok);
+                      }
+
+}
+

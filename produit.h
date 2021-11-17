@@ -4,6 +4,7 @@
 #include<QSqlQuery>
 #include<QSqlQueryModel>
 #include <QFrame>
+#include<QFileDialog>
 #include <QtCharts/QtCharts>
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>

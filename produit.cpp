@@ -250,7 +250,7 @@ void produit::statistique(QVector<double>* ticks,QVector<QString> *labels)
 {
     QSqlQuery q;
     int i=0;
-    q.exec("select quantite from produit");
+    q.exec("select nom_produit from produit");
     while (q.next())
     {
         QString identifiant = q.value(0).toString();
