@@ -14,11 +14,6 @@ db.setUserName("Ahmed");//inserer nom de l'utilisateur
 db.setPassword("ahmed2001");//inserer mot de passe de cet utilisateur
 
 if (db.open())
-test=true;
-
-
-
-
-
+    test=true;
     return  test;
 }
