@@ -279,18 +279,18 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 {
     // background //
               QLinearGradient gradient(0, 0, 0, 400);
-              gradient.setColorAt(0, QColor(90, 90, 90));
-              gradient.setColorAt(0.38, QColor(105, 105, 105));
-              gradient.setColorAt(1, QColor(70, 70, 70));
+              gradient.setColorAt(0, QColor(198, 156, 109));
+              gradient.setColorAt(0.38, QColor(237, 187, 130));
+              gradient.setColorAt(1, QColor(255, 200, 138));
               ui->plot->setBackground(QBrush(gradient));
 
               QCPBars *amande = new QCPBars(ui->plot->xAxis, ui->plot->yAxis);
               amande->setAntialiased(false);
               amande->setStackingGap(1);
                //couleurs
-              amande->setName("Repartition des produit selon prix ");
-              amande->setPen(QPen(QColor(0, 168, 140).lighter(130)));
-              amande->setBrush(QColor(0, 168, 140));
+              amande->setName("Repartition des produit selon nom de produit ");
+              amande->setPen(QPen(QColor(247, 198, 132).lighter(150)));
+              amande->setBrush(QColor(247, 198, 132));
 
                //axe des abscisses
               QVector<double> ticks;
@@ -304,25 +304,25 @@ void MainWindow::on_tabWidget_currentChanged(int index)
               ui->plot->xAxis->setSubTicks(false);
               ui->plot->xAxis->setTickLength(0, 4);
               ui->plot->xAxis->setRange(0, 8);
-              ui->plot->xAxis->setBasePen(QPen(Qt::white));
-              ui->plot->xAxis->setTickPen(QPen(Qt::white));
+              ui->plot->xAxis->setBasePen(QPen(Qt::black));
+              ui->plot->xAxis->setTickPen(QPen(Qt::black));
               ui->plot->xAxis->grid()->setVisible(true);
-              ui->plot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
-              ui->plot->xAxis->setTickLabelColor(Qt::white);
-              ui->plot->xAxis->setLabelColor(Qt::white);
+              ui->plot->xAxis->grid()->setPen(QPen(QColor(242, 149, 102), 0, Qt::DotLine));
+              ui->plot->xAxis->setTickLabelColor(Qt::black);
+              ui->plot->xAxis->setLabelColor(Qt::black);
 
               // axe des ordonnées
               ui->plot->yAxis->setRange(0,10);
               ui->plot->yAxis->setPadding(5);
-              ui->plot->yAxis->setLabel("Statistiques");
-              ui->plot->yAxis->setBasePen(QPen(Qt::white));
-              ui->plot->yAxis->setTickPen(QPen(Qt::white));
-              ui->plot->yAxis->setSubTickPen(QPen(Qt::white));
+              ui->plot->yAxis->setLabel("quantite");
+              ui->plot->yAxis->setBasePen(QPen(Qt::black));
+              ui->plot->yAxis->setTickPen(QPen(Qt::black));
+              ui->plot->yAxis->setSubTickPen(QPen(Qt::black));
               ui->plot->yAxis->grid()->setSubGridVisible(true);
-              ui->plot->yAxis->setTickLabelColor(Qt::white);
-              ui->plot->yAxis->setLabelColor(Qt::white);
-              ui->plot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
-              ui->plot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+              ui->plot->yAxis->setTickLabelColor(Qt::black);
+              ui->plot->yAxis->setLabelColor(Qt::black);
+              ui->plot->yAxis->grid()->setPen(QPen(QColor(242, 149, 102), 0, Qt::SolidLine));
+              ui->plot->yAxis->grid()->setSubGridPen(QPen(QColor(242, 149, 102), 0, Qt::DotLine));
 
               // ajout des données  (statistiques de la quantité)//
 
@@ -385,3 +385,9 @@ void MainWindow::on_pushButton_exp_clicked()
 
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+     produit p;
+     ui->tableView->setModel(p.produitsplusdemande());
+}

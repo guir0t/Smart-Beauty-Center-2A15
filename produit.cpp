@@ -259,3 +259,14 @@ void produit::statistique(QVector<double>* ticks,QVector<QString> *labels)
         *labels <<identifiant;
     }
 }
+QSqlQueryModel * produit::produitsplusdemande()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("SELECT CIN, COUNT(CIN) FROM COMMANDE_VENTE GROUP BY CIN");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_produit"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nb demande"));
+
+
+
+    return model;
+}

@@ -57,6 +57,7 @@ public:
     bool rechquantite(int );
 QSqlQueryModel* rechercherquantite(QString );
 void statistique(QVector<double>* ticks,QVector<QString> *labels);
+QSqlQueryModel * produitsplusdemande();
 
 };
 

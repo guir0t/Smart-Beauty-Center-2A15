@@ -34,11 +34,11 @@ border-color: rgb(117, 76, 36);
 </string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>ajout des produits</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
@@ -82,6 +82,9 @@ border-color: rgb(117, 76, 36);
        </property>
        <property name="maxLength">
         <number>8</number>
+       </property>
+       <property name="placeholderText">
+        <string/>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -162,7 +165,7 @@ border-color: rgb(117, 76, 36);
         <number>4</number>
        </property>
        <property name="placeholderText">
-        <string>float from 0 to 1</string>
+        <string> from 0 to 1</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_ajouter">
@@ -355,7 +358,7 @@ QPushButton{
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>affichage des produits</string>
      </attribute>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
@@ -377,7 +380,7 @@ QPushButton{
 }</string>
       </property>
       <property name="text">
-       <string>afficher le produit le plus consommable</string>
+       <string>afficher les produit le plus demandés</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_exp">
@@ -401,29 +404,6 @@ QPushButton{
       </property>
       <property name="text">
        <string>exporter en excel </string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="geometry">
-       <rect>
-        <x>530</x>
-        <y>210</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton:hover {
-color:#fff;
-border:15px;
-background: rgb(198, 156, 109);
-}
-QPushButton{
- border: 3px solid white;
-}</string>
-      </property>
-      <property name="text">
-       <string>statistique</string>
       </property>
      </widget>
      <widget class="QTableView" name="tableView">
@@ -540,7 +520,7 @@ QPushButton{
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
-      <string>Page</string>
+      <string>chercher des produit</string>
      </attribute>
      <widget class="QTableView" name="tableView_2">
       <property name="geometry">
@@ -625,7 +605,7 @@ QPushButton{
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>stat</string>
+      <string>statistiques</string>
      </attribute>
      <widget class="QWidget" name="widget" native="true">
       <property name="geometry">
