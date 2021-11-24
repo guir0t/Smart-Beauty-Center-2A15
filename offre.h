@@ -19,8 +19,14 @@ public:
     void setdesignation(QString);
     bool ajouter();
     QSqlQueryModel* afficher();
+    QSqlQueryModel * trierprix();
+    QSqlQueryModel * trierdes();
+    QSqlQueryModel* rechercher(int);
+    QSqlQueryModel* chercher(QString );
+
     bool supprimer(int);
     bool modifier();
+    QSqlQueryModel * offre_pd();
 private:
     int id_offre ;
     int prix;

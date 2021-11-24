@@ -68,6 +68,32 @@ QSqlQueryModel* Offre::afficher()
     return model;
 
 }
+QSqlQueryModel* Offre::trierprix()
+{
+
+        QSqlQueryModel * model= new QSqlQueryModel();
+
+              model->setQuery("SELECT * FROM offre ORDER BY prix ");
+              model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
+              model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
+              model->setHeaderData(2,Qt::Horizontal,QObject::tr("disponibilité"));
+              model->setHeaderData(3,Qt::Horizontal,QObject::tr("designation"));
+
+        return model;
+
+}
+QSqlQueryModel *Offre::trierdes()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+          model->setQuery("SELECT * FROM offre ORDER BY designation ");
+          model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
+          model->setHeaderData(1,Qt::Horizontal,QObject::tr("prix"));
+          model->setHeaderData(2,Qt::Horizontal,QObject::tr("disponibilité"));
+          model->setHeaderData(3,Qt::Horizontal,QObject::tr("designation"));
+
+    return model;
+}
 
 bool Offre::modifier()
 {
@@ -84,8 +110,60 @@ bool Offre::modifier()
 
 }
 
+QSqlQueryModel* Offre::rechercher(int id)
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+                QString id_string=QString ::number(id);
+            model->setQuery("select * from offre where id_offre='"+id_string+"'");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("PRIX"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("DISPONIBILITE"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("DESIGNATION"));
 
+   return model;
+}
+QSqlQueryModel* Offre::chercher(QString a)
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
 
+            model->setQuery("select * from offre where DESIGNATION='"+a+"'");
+            model->setHeaderData(0,Qt::Horizontal,QObject::tr("Identifiant"));
+            model->setHeaderData(1,Qt::Horizontal,QObject::tr("PRIX"));
+            model->setHeaderData(2,Qt::Horizontal,QObject::tr("DISPONIBILITE"));
+            model->setHeaderData(3,Qt::Horizontal,QObject::tr("DESIGNATION"));
+
+   return model;
+}
+
+QSqlQueryModel * Offre::offre_pd(){
+    QSqlQueryModel *model=new QSqlQueryModel();
+    int occ=0 , occmax=0 , idmax ;
+
+    model->setQuery("select * from RENDEZ_VOUS ");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_RDV"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("JOUR"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("MOIS"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("ANNEE"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("ID_CLIENT"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("ID_OFFRE"));
+
+    for(int i=0 ; i<model->rowCount(); i++)
+    {
+    occ=0 ;
+    idmax=model->data(model->index(0,5)).toInt();
+    for(int j=0 ; j<model->rowCount(); j++)
+    {
+        if (model->data(model->index(j,5)).toInt()==model->data(model->index(i,5)).toInt())
+            occ++;
+    }
+    if(occ>occmax)
+    { occmax=occ;
+      idmax=model->data(model->index(i,5)).toInt();
+    }
+    }
+    model=rechercher(idmax);
+    return model;
+}
 
 
 

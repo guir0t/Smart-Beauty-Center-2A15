@@ -22,6 +22,22 @@ private slots:
 
     void on_pb_modifier_clicked();
 
+    void on_PDF_pb_clicked();
+
+    void on_triePB_clicked();
+
+    void on_pb_recher_clicked();
+
+    void on_triePB_2_clicked();
+
+
+
+    void on_pb_send_clicked();
+
+    void on_pb_recher_2_clicked();
+
+    void on_offr_PD_clicked();
+
 private:
     Ui::MainWindow *ui;
     Offre O;
