@@ -147,10 +147,11 @@ QSqlQueryModel * Offre::offre_pd(){
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("ID_CLIENT"));
     model->setHeaderData(5,Qt::Horizontal,QObject::tr("ID_OFFRE"));
 
+    idmax=model->data(model->index(0,5)).toInt();
     for(int i=0 ; i<model->rowCount(); i++)
     {
     occ=0 ;
-    idmax=model->data(model->index(0,5)).toInt();
+
     for(int j=0 ; j<model->rowCount(); j++)
     {
         if (model->data(model->index(j,5)).toInt()==model->data(model->index(i,5)).toInt())
