@@ -6,25 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>809</width>
-    <height>448</height>
+    <width>1157</width>
+    <height>695</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Gestion des Clients</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(252, 231, 212);
+font: 75 11pt &quot;Agency FB&quot;;
+background-image:&quot;C:/Users/turki/Desktop/projet/123333.jpg&quot;</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>30</y>
-      <width>731</width>
-      <height>301</height>
+      <y>10</y>
+      <width>1111</width>
+      <height>601</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab_ajouter">
      <attribute name="title">
@@ -33,10 +38,10 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>10</y>
-        <width>771</width>
-        <height>311</height>
+        <width>1031</width>
+        <height>501</height>
        </rect>
       </property>
       <property name="title">
@@ -52,7 +57,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Nom</string>
+        <string>Prenom</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_2">
@@ -65,7 +70,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Prenom</string>
+        <string>Nom</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -137,8 +142,8 @@
       <widget class="QPushButton" name="pb_ajouter">
        <property name="geometry">
         <rect>
-         <x>610</x>
-         <y>220</y>
+         <x>900</x>
+         <y>450</y>
          <width>112</width>
          <height>34</height>
         </rect>
@@ -227,9 +232,144 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>731</width>
-        <height>281</height>
+        <width>911</width>
+        <height>311</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="le_chercher">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>350</y>
+        <width>181</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_chercher">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>350</y>
+        <width>112</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Effectuer</string>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tab_fournisseur_chercher">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>330</y>
+        <width>431</width>
+        <height>201</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_trie">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>10</y>
+        <width>141</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CIN</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NUMERO</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pb_trie_c">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>50</y>
+        <width>112</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Trie croissant</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_trie_dec">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>100</y>
+        <width>112</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Trie decroissant</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_chercher">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>350</y>
+        <width>161</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>nom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>cin</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>contract</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pb_PDF">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>170</y>
+        <width>141</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Export PDF</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_txt">
+      <property name="geometry">
+       <rect>
+        <x>940</x>
+        <y>230</y>
+        <width>141</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Export TXT</string>
       </property>
      </widget>
     </widget>
@@ -288,7 +428,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Nom</string>
+       <string>Prenom</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_10">
@@ -301,7 +441,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Prenom</string>
+       <string>Nom</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_11">
@@ -333,14 +473,14 @@
      <widget class="QLabel" name="label_13">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>50</x>
         <y>200</y>
-        <width>111</width>
+        <width>241</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>ID_Fournisseur</string>
+       <string>INSERER ID POUR MODIFIER</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="le_nom_m">
@@ -386,9 +526,9 @@
      <widget class="QLineEdit" name="le_id_m">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>360</x>
         <y>200</y>
-        <width>113</width>
+        <width>201</width>
         <height>25</height>
        </rect>
       </property>
@@ -453,6 +593,21 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Statistique</string>
+     </attribute>
+     <widget class="QCustomPlot" name="plot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>20</y>
+        <width>1111</width>
+        <height>551</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -460,8 +615,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>809</width>
-     <height>30</height>
+     <width>1157</width>
+     <height>31</height>
     </rect>
    </property>
   </widget>
@@ -476,6 +631,14 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
