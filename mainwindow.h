@@ -8,6 +8,8 @@
 #include <QTextTableFormat>
 #include <QStandardItemModel>
 #include <QDialog>
+#include "Arduino.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -46,11 +48,21 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_pb_ard_on_clicked();
+
+    void on_pb_ard_1_clicked();
+
+    void on_pb_ard_2_clicked();
+
+    void on_pb_ard_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     Fournisseur f;
     int selected=0;
     QStringList files;
+    Arduino a ;
+    QByteArray data ;
 
 };
 

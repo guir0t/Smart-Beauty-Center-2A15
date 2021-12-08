@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "fournisseur.h"
+#include "Arduino.h"
 #include <QIntValidator>
 #include <QMessageBox>
 #include <QTextStream>
@@ -17,6 +18,18 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->le_id_fournisseur->setValidator(new QIntValidator(0, 99999999, this));
    ui->le_numero->setValidator(new QIntValidator(0, 99999999, this));
    ui->tab_fournisseur->setModel(f.afficher());
+
+   ui->setupUi(this);
+   int ret=a.connect_arduino(); // lancer la connexion à arduino
+   switch(ret){
+   case(0):qDebug()<< "arduino is available and connected to : "<< a.getarduino_port_name();
+       break;
+   case(1):qDebug() << "arduino is available but not connected to :" <<a.getarduino_port_name();
+      break;
+   case(-1):qDebug() << "arduino is not available";
+   }
+    QObject::connect(a.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+    //le slot update_label suite à la reception du signal readyRead (reception des données).
 
 
 }
@@ -424,4 +437,24 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                       legendFont.setPointSize(5);
                       ui->plot->legend->setFont(legendFont);
                       ui->plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+}
+
+void MainWindow::on_pb_ard_on_clicked()
+{
+a.write_to_arduino("0");  //envoyer 0 à arduino
+}
+
+void MainWindow::on_pb_ard_1_clicked()
+{
+    a.write_to_arduino("1"); //envoyer 1 à arduino
+}
+
+void MainWindow::on_pb_ard_2_clicked()
+{
+    a.write_to_arduino("2");
+}
+
+void MainWindow::on_pb_ard_3_clicked()
+{
+    a.write_to_arduino("3");  //envoyer 3 à arduino
 }

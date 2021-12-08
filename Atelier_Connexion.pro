@@ -3,12 +3,13 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
-
+QT += serialport
 QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 QT += printsupport
+
 
 TARGET = Atelier_Connexion
 TEMPLATE = app
@@ -27,6 +28,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    Arduino.cpp \
     fournisseur.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -34,6 +36,7 @@ SOURCES += \
     qcustomplot.cpp
 
 HEADERS += \
+    Arduino.h \
     fournisseur.h \
         mainwindow.h \
     connection.h \
